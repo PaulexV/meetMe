@@ -2,31 +2,40 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import "./App.css"
-import AuthProvider from "./AuthProvider"
-import PrivateRoute from "./privateRoute"
-import Home from "./pages/Home"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
+import AuthProvider from "./services/AuthProvider"
+import PrivateRoute from "./services/privateRoute"
+import { Home, Login, Register, Profile, Connection } from "./pages/Index"
 
 function App() {
-  return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
-  )
+	return (
+		<AuthProvider>
+			<div id="master-div">
+				<Router>
+					<Routes>
+						<Route path="/" element={<Connection />} />
+						<Route
+							path="/home"
+							element={
+								<PrivateRoute>
+									<Home />
+								</PrivateRoute>
+							}
+						/>
+						<Route
+							path="/profile"
+							element={
+								<PrivateRoute>
+									<Profile />
+								</PrivateRoute>
+							}
+						/>
+						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+					</Routes>
+				</Router>
+			</div>
+		</AuthProvider>
+	)
 }
 
 export default App

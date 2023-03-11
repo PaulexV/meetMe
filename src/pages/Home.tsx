@@ -1,34 +1,13 @@
-import React, { Fragment, useContext } from "react"
-import { auth } from "../firebase"
-import { useNavigate } from "react-router-dom"
-import { AuthContext } from "../AuthProvider"
-import { signOut } from "firebase/auth"
+import React from "react"
+import Navbar from "../components/Navbar"
 
 const Home = () => {
-  const navigate = useNavigate()
-  const { user } = useContext(AuthContext)
-
-  const logout = async () => {
-    await signOut(auth).then(() => {
-      localStorage.removeItem("@user")
-      navigate("/login")
-    })
-  }
-  return (
-    <div>
-      {user != null && (
-        <Fragment>
-          <button
-            onClick={async () => {
-              await logout()
-            }}
-          >
-            Logout
-          </button>
-        </Fragment>
-      )}
-    </div>
-  )
+	return (
+		<div id="home-div">
+			toto
+			<Navbar state={0} />
+		</div>
+	)
 }
 
 export default Home
