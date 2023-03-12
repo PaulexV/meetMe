@@ -5,11 +5,15 @@ import "./App.css"
 import AuthProvider from "./services/AuthProvider"
 import PrivateRoute from "./services/privateRoute"
 import { Home, Login, Register, Profile, Connection } from "./pages/Index"
+import { Paper } from "@mui/material"
 
 function App() {
 	return (
 		<AuthProvider>
 			<div id="master-div">
+				<Paper className="header" elevation={6}>
+					<div className="header-name">MeetMe</div>
+				</Paper>
 				<Router>
 					<Routes>
 						<Route path="/" element={<Connection />} />

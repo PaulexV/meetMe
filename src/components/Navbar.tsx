@@ -15,7 +15,12 @@ const Navbar = (props: Props) => {
 	return (
 		<div id="navbar">
 			<Paper
-				sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+				sx={{
+					position: "fixed",
+					bottom: 0,
+					left: 0,
+					right: 0,
+				}}
 				elevation={3}
 			>
 				<BottomNavigation
